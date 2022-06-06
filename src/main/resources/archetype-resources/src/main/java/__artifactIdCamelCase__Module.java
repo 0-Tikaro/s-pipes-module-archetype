@@ -11,8 +11,34 @@ import org.slf4j.LoggerFactory;
 public class $className extends AnnotatedAbstractModule {
     private static final Logger LOG = LoggerFactory.getLogger(${className}.class);
 
+    private static final String TYPE_URI = KBSS_MODULE.uri + "sparql-endpoint-download-graph";
+    private static final String TYPE_PREFIX = TYPE_URI + "/";
+
+    @Parameter(urlPrefix = TYPE_PREFIX, name = "endpoint-url")
+    private String endpointUrl;
+
+    @Parameter(urlPrefix = TYPE_PREFIX, name = "output-resource-variable")
+    private String outputResourceVariable;
+
+    public String getEndpointUrl() {
+        return endpointUrl;
+    }
+
+    public void setEndpointUrl(String endpointUrl) {
+        this.endpointUrl = endpointUrl;
+    }
+
+    public String getOutputResourceVariable() {
+        return outputResourceVariable;
+    }
+
+    public void setOutputResourceVariable(String outputResourceVariable) {
+        this.outputResourceVariable = outputResourceVariable;
+    }
+
+
     @Override
-    ExecutionContext executeSelf() {
+    protected ExecutionContext executeSelf() {
         return executionContext;
     }
 
@@ -23,5 +49,6 @@ public class $className extends AnnotatedAbstractModule {
 
     @Override
     public void loadConfiguration() {
+        LOG.info("Configuration loaded successfully.");
     }
 }
