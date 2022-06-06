@@ -1,0 +1,19 @@
+@prefix kbss-module: <http://onto.fel.cvut.cz/ontologies/lib/module/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kbss-module:bind-rdf-content-hash
+    rdf:type sm:Module ;
+    spin:constraint [
+                        rdf:type spl:Argument ;
+                        spl:optional "false"^^xsd:boolean ;
+                        spl:predicate sm:outputVariable ;
+                        rdfs:comment "Sample output variable. Created to see if we can generate this" ;
+                    ] ;
+    rdfs:comment "Automatically generated s-pipes module. For more information, see ${artifactIdCamelCase}.java." ;
+    rdfs:label "${artifactId}" ;
+.
